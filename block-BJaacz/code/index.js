@@ -421,7 +421,7 @@ filter is a higher order function.
     console.log(filter(grade, isGradeB));
     console.log(filter(grade, isGradeC));
 */
-function(arr, callbackFn) {
+function filter(arr, callbackFn) {
   let final = [];
   for (let person of arr) {
     if (callbackFn(person)) {
