@@ -32,11 +32,86 @@ Example:
    - `charAt` accepts a index (number data type) and return the character on that index in the string.
 
 2. `toUpperCase`
+   - Parameter: () - string data type.
+   - Return: A new string representing the calling string converted to upper case.
+   - Example:
+     
+     ```js
+     let name = "Vivek Kumar";
+     name.toUpperCase(); // `VIVEK KUMAR`
+     let schoolName = "Sainik School Gopalganj";
+     schoolName.toUpperCase(); // `SAINIK SCHOOL GOPALGANJ`
+     let houseName = "Gandhara";
+     houseName.toUpperCasse(); // `GANDHARA`
+    ``` 
+   - `toUpperCase` method returns the calling string value converted to uppercase.
+
 3. `toLowerCase`
+  - Parameter: () - string data type.
+  - Return: A new string representing the calling string          converted to lower case.
+  - Example:
+
+    ```js
+    let name = "Abhishek Shastri";
+    name.toLowerCase(); // `abhishek shastri`
+    let schoolName = "Sainik School Gopalganj";
+    schoolName.toLowerCase(); // `sainik school gopalganj`
+    let houseName = "Vikramshila";
+    houseName.toLowerCase(); // `vikramshila`
+    ```
+  - `toLowerCase` method returns the calling string value converted to lowercase.
+
 4. `trim`
+  - Parameter: () - string data type.
+  - Return: A new string representing `str` stripped off      whitespaces from both its beginning and end.
+    Example:
+    ```js
+    let name = "   Anil Kumar    ";
+    name.trim(); // `Anil Kumar`
+    let schoolName = "Sainik School Nalanda  ";
+    schoolName.trim(); //  `Sainik School Nalanda`
+    let houseName = "   Mahavira";
+    houseName.trim(); // `Mahavira`
+    ```
+  - `trim` method removes whitespaces from both ends of a string.
+
 5. `trimEnd`
+  - Parameter: () - string data type.
+  - Return: A new string representing `str` stripped off    whitespaces from its end.
+    Example: 
+    ```js
+    let name = "   Sumit Kumar   ";
+    name.trimEnd(); // `   Sumit Kumar`
+    let schoolName = "     Sainik School Nalanda";
+    schoolName.trimEnd(); // `    Sainik School Nalanda`
+    let houseName = "Ashoka   ";
+    houseName.trimEnd(); // `Ashoka`
+    ```
+  - `trimEnd` method removes whitespaces from end of a string.
+
 6. `trimStart`
-7. `concat`
+  - Parameter: () - string data type.
+  - Return: A new string representing `str` stripped off    whitespaces from its beginning.
+    Example: 
+    ```js
+    let name = "   Ravindra Shastri ";
+    name.trimStart(); // `Ravindra Shastri `
+    let schoolName = "     Sainik School Nalanda";
+    schoolName.trimStart(); // `Sainik School Nalanda`
+    let houseName = "Ajatshatru   ";
+    houseName.trimStart(); // `Ajatshatru   `
+    ```
+  - `trimStart` method removes whitespaces from beginning of a string.
+
+7. `concat` 
+  - Parameter: strN - One or more strings to concatenate to str.
+  - Return: A new string containing the combined text of the strings provided.
+    Example:
+    ```js
+    let name = "Shishupal Kumar";
+    let schoolName = "Sainik School GopalGanj";
+    name.concat(` `,`,`, schoolName); // `Shishupal Kumar,Sainik School Gopalganj`
+    ```
 8. `endsWith`
 9. `includes`
 10. `indexOf`
