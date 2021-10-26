@@ -340,10 +340,108 @@ Example:
    - Return: undefined.
    - Example:
    ```js
-   
+   let colors = ["red", "green", "yellow", "blue"];
+   colors.forEach((color) => console.log(color)); // output will be one by one as, red green yellow blue
+   let numbers = [1, 3, 5, 8, 23];
+   numbers.forEach((num) => console.log(num)); // output will be one by one as, 1 3 5 8 23
+   let students = ["Abhishek", "Rahul", "Bimlendu"];
+   students.forEach((student) => console.log(student)); //output will be one by one as, Abhishek Rahul Bimlendu
    ```
+   `forEach` method executes a provided function once for each array element.
+  - It does not mutate the value.
+
 18. `map`
+   - Parameter: 
+     - callbackFn - Function that is called for every element of arr. Each time callbackFn executes, the returned value is added to newArray.The callbackFn function accepts the following arguments:
+      - element - The current element being processed in the array.
+      - index - optional - The index of the current element being processed in the array.
+      - array - optional - The array map was called upon.
+      - thisArg - optional - Value to use as this when executing callbackFn.
+   - Return: A new array with each element being the result of the callback function.
+   - Example:
+   ```js
+   let numbers = [3, 5, 7, 9, 14];
+   numbers.map((num) => num * 2); // [6, 10, 14, 18, 28]
+   numbers.map((num) => num % 2 === 0); // [false, false, false, false, true]
+   numbers.map((num) => num / 3); // [1, 1.66, 2.33, 3, 4.66]
+   ```
+  `map` method creates a new array populated with the results of callling a provided function on every element in the calling array.
+  - It does not mutate the array.
+
 19. `pop`
-20. `reduce`
+   - Parameter: ()
+   - Return: The removed element from the array; `undefined` if the array is empty.
+   - Example:
+   ```js
+   let numbers = [12, 23, 34, 45, 56, 67];
+   numbers.pop(); // 67
+   numbers; [12, 23, 34, 45, 56];
+   let animals = ["lion", "tiger", "hyna", "leopard"];
+   animals.pop(); // "leopard"
+   animals; // ["lion", "tiger", "hyna"]
+   ```
+   `pop` method removes the last element from an array and returns that element. This method changes the length of the array.
+   - It mutates the array.
+
+20. `reduce` 
+   - Parameter:
+     - callbackFn - A "reducer" function that takes four arguments:
+       - previousValue - The value resulting from the previous call to callbackfn.
+       - currentValue - The value of the current element.
+       - currentIndex - optional.
+       - array - The array to reverse- optional.
+   - initialValue - optional - A value to which previousValue is initialised the first time the callback is called. If initialValue is specified, that also causes currentValue to be initialised to the first value in the array. If initialValue is not specified, previousValue is initialised to the first value in the array, and currentValue is initialised to the second value in the array.
+   - Return: The value that results from running the "reducer" callback function to completion over the entire array.
+   - Example:
+   ```js
+   let numbers = [4, 5, 64, 23, 52, 87];
+   let sum = numbers.reduce((acc, num) => {
+     return acc + num;
+   }, 0);
+   console.log(sum); // 235
+
+   let colors = ["red", "yellow", "aqua"];
+   let allColors = colors.reduce((acc, color) => {
+     return acc + color;
+   }, "");
+   console.log(allColors); // redyellowaqua
+   allColors; 'redyellowaqua'
+   ```
+   `reduce` method executes a user-supplied “reducer” callback function on each element of the array, passing in the return value from the calculation on the preceding element. The final result of running the reducer across all elements of the array is a single value.
+   - It does not mutate the array.
+
 21. `slice`
-22. `some`
+   - Parameter: start - optional - Zero-based index at which to start extraction. A negative index can be used, indicating an offset from the end of the sequence. slice(-2) extracts the last two elements in the sequence. If start is undefined, slice strats from 0. If start is greater than the index range of the sequence, an empty array is returned.
+   - end - optional - Zero-based index before which to end extraction. slice extracts up to but not including end. For example, slice(1,4) extracts the second element through the fourth element (elements indexed 1, 2, and 3).
+  - Return: A new array containing the extracted elements.
+  - Example:
+  ```js
+  let numbers = [4, 5, 64, 23, 52, 87];
+  numbers.slice(2); // [64, 23, 52, 87]
+  numbers.slice(2, 3); // [64]
+  numbers.slice(1, 3); // [5, 64]
+  ```
+  `slice` method returns a shallow copy of a portion of an array into a new array object selected from start to end (end not included) where start and end represent the index of items in that array. The original array will not be modified.
+  - It does not mutate the value.
+
+22. `some` 
+   - Parameter:
+     - callbackFn - A function to test for each element, taking three arguments:
+       - element - The current element being processed in the array.
+       - index - optional - The index of the current element being processed in the array.
+       array - optional -The array some() was called upon.
+   - thisArg - optional - A value to use as this when executing callbackFn.
+   - Return: true if the callback function returns a truthy value for at least one element in the array. Otherwise, false.
+   - Example:
+   ```js
+   let numbers = [1, 5, 8, 23, 34];
+   let evenNumber = numbers.some((num) => num % 2 === 0);
+   console.log(evenNumber); // true
+   let oddNumber = numbers.some((num) => num % 2 !== 0);
+   console.log(oddNumber); // true
+   let uniqueNumber = numbers.some((num) => num > 100);
+   console.log(uniqueNumber); // false
+   ```
+   `some` method tests whether at least one element in the array passes the test implemented by the provided function. It returns true if, in the array, it finds an element for which the provided function returns true; otherwise it returns false. It doesn't modify the array.
+   - It does not mutate the value.
+
