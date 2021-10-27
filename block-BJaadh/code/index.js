@@ -25,9 +25,9 @@ updatedArr.join(" ");
 // - Remove the first word in the array (strings)
 updatedArr.shift();
 // - Find all the words that contain 'is' use string method 'includes'
-updatedArr.includes("is")
+strings.filter(string => string.includes("is"));
 // - Find all the words that contain 'is' use string method 'indexOf'
-updatedArr.indexOf()
+strings.filter(string => string.indexOf("is") !== -1);
 // - Check if all the numbers in numbers array are divisible by three use array method (every)
 let numDivByThree = numbers.every((num) => num / 3 === 0); // false
 // -  Sort Array from smallest to largest
@@ -36,9 +36,9 @@ sortedNum.sort((a, b) => a - b);
 // - Remove the last word in strings
 updatedArr.pop();
 // - Find largest number in numbers
-// let largestnum = sortedNum.i();
+let largestnum = sortedNum.pop();
 // - Find longest string in strings
-
+let longestString = [...strings].sort((a, b) => a.length - b.length).pop();
 // - Find all the even numbers
 let evenNumbers = numbers.filter((num) => num % 2 ===0);
 // - Find all the odd numbers
@@ -50,11 +50,23 @@ console.log(numbers.slice(3, 7));
 // - Make a subset of strings array ['a','collection']
 console.log(strings.slice(2, 4));
 // - Replace 12 & 18 with 1221 and 1881
-console.log(numbers.map)
+console.log(numbers.map((num) => {
+  if (num === 12) {
+    return 1221;
+  } else if(num === 18) {
+    return 1881;
+  } else {
+    return num;
+  }
+}));
 // - Replace words in strings array with the length of the word
-
+console.log(strings.map((string) => string.length));
 // - Find the sum of the length of words using above question
-
+let stringLength = strings.map((string) => string.length);
+let lengthSum = stringLength.reduce((acc, cv) => {
+  acc = acc + cv;
+  return acc;
+},0)
 // - Customers Array
 var customers = [
   { firstname: 'Joe', lastname: 'Blogs' },
@@ -63,11 +75,23 @@ var customers = [
   { firstname: 'Jack', lastname: 'White' },
 ];
 // - Find all customers whose firstname starts with 'J'
-
+let uniqueCustomer = customers.filter((customer) => customer.firstname.startsWith("J"));
 // - Create new array with only first name
-
+let firstnameArr = customers.map((customer) => customer.firstname);
 // - Create new array with all the full names (ex: "Joe Blogs")
-let fullName = firstname + lastname;
+let fullNameCustomer = customers.map((customer) => `${customer.firstname} ${customer.lastname}`);
 // - Sort the array created above alphabetically
-
+fullNameCustomer.sort();
 // - Create a new array that contains only user who has at least one vowel in the firstname.
+let vowelCustomer = customers.filter((customer) => {
+  if(customer.firstname.includes("a") ||
+     customer.firstname.includes("e") ||
+     customer.firstname.includes("i") ||
+     customer.firstname.includes("o") ||
+     customer.firstname.includes("u")
+     ) {
+       return true;
+    } else {
+      return false;
+    }
+});
