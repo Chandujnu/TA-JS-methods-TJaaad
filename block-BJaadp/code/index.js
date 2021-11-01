@@ -81,7 +81,10 @@ Output:
 
 [['banana', 2], ['cherry', 3], ['orange', 3], ['apple', 2], ['fig', 1]]
 */
-
+let fruitArr = Object.keys(fruitsObj).reduce((acc, cv) => {
+  acc = acc.concat([[cv, fruitsObj[cv]]]);
+  return acc;
+}, [])
 const data = [
   [1, 2, 3],
   [4, 5, 6],
@@ -116,17 +119,37 @@ Create these functions which accepts a number value and returns a number value:
   - `half` converts the value to half and return the integer value not decimal (use Math.round(21.5) => 21)
 */
 
-// let pipeline = [
-//   increment,
-//   double,
-//   decrement,
-//   decrement,
-//   double,
-//   triple,
-//   half,
-//   increment,
-// ];
+function increment(num) {
+  return num + 1;
+}
+function double(num) {
+  return num * 2;
+}
+function decrement(num) {
+  return num - 1;
+}
+function triple(num) {
+  return num * 3;
+}
+function half(num) {
+  return Math.round(num / 2);
+}
 
+let pipeline = [
+  increment,
+  double,
+  decrement,
+  decrement,
+  double,
+  triple,
+  half,
+  increment,
+];
+
+pipeline.reduce((acc, cv) => {
+  acc = cv(acc);
+  return acc;
+}, 3)
 /*
 Using the pipeline variable that contains the collection of functions, taking the initial value 3 find the output.
 
@@ -141,18 +164,22 @@ EXAMPLE:
   ...
 */
 
-// let pipeline2 = [
-//   increment,
-//   half,
-//   double,
-//   decrement,
-//   decrement,
-//   triple,
-//   double,
-//   triple,
-//   half,
-//   increment,
-//   triple,
-// ];
+let pipeline2 = [
+  increment,
+  half,
+  double,
+  decrement,
+  decrement,
+  triple,
+  double,
+  triple,
+  half,
+  increment,
+  triple,
+];
 
 // Find the output using pipeline2 the initial value if 8
+pipeline.reduce((acc, cv) => {
+  acc = cv(acc);
+  return acc;
+}, 8)
