@@ -9,31 +9,50 @@ function countAllPeople() {
 }
 
 function peopleByHouses() {
-  
+  final = {};
+  got.houses.forEach(house => {
+    final[house.name] = house.people.length;
+  });
+  return final;
 }
 
 function everyone() {
-  // your code goes here
+  let final = [];
+  got.houses.forEach(house => {
+    let peopleName = house.people.map((person) => person.name);
+    final = final.concat(peopleName);
+  });
+  return final;
 }
 
 function nameWithS() {
-  // your code goes here
+  let allPeople = everyone();
+  return allPeople.filter((name) => name.toLowerCase().includes("s"));
 }
 
 function nameWithA() {
-  // your code goes here
+  let allPeople = everyone();
+  return allPeople.filter((name) => name.toLowerCase().includes("a"));
 }
 
 function surnameWithS() {
-  // your code goes here
+  let allPeople = everyone();
+  return allPeople.filter((name) => name.split(' ')[1].toLowerCase().startsWith("s"));
 }
 
 function surnameWithA() {
-  // your code goes here
-}
+    let allPeople = everyone();
+    return allPeople.filter((name) => name.split(' ')[1].toLowerCase().startsWith("a"));
+  }
 
 function peopleNameOfAllHouses() {
-  // your code goes here
+  let final = {};
+    got.houses.forEach((house) => {
+      final[house.name] = house.people.map(
+        (p) => p.name
+      );
+    });
+    return final;
 }
 
 // Testing your result after writing your function
